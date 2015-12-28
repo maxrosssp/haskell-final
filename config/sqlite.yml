@@ -1,0 +1,20 @@
+Default: &defaults
+  database: fileshare-final.sqlite3
+  poolsize: 10
+
+Development:
+  <<: *defaults
+
+Testing:
+  database: fileshare-final_test.sqlite3
+  <<: *defaults
+
+Staging:
+  database: fileshare-final_staging.sqlite3
+  poolsize: 100
+  <<: *defaults
+
+Production:
+  database: fileshare-final_production.sqlite3
+  poolsize: 100
+  <<: *defaults

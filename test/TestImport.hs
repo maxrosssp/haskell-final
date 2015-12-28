@@ -3,7 +3,7 @@ module TestImport
     , module X
     ) where
 
-import Application           (makeFoundation, makeLogWare)
+import Application           (makeFoundation)
 import ClassyPrelude         as X
 import Database.Persist      as X hiding (get)
 import Database.Persist.Sql  (SqlPersistM, SqlBackend, runSqlPersistMPool, rawExecute, rawSql, unSingle, connEscapeName)
@@ -26,7 +26,7 @@ runDB query = do
     pool <- fmap appConnPool getTestYesod
     liftIO $ runSqlPersistMPool query pool
 
-withApp :: SpecWith (TestApp App) -> Spec
+withApp :: SpecWith App -> Spec
 withApp = before $ do
     settings <- loadAppSettings
         ["config/test-settings.yml", "config/settings.yml"]
@@ -34,8 +34,7 @@ withApp = before $ do
         ignoreEnv
     foundation <- makeFoundation settings
     wipeDB foundation
-    logWare <- liftIO $ makeLogWare foundation
-    return (foundation, logWare)
+    return foundation
 
 -- This function will truncate all of the tables in your database.
 -- 'withApp' calls it before each test, creating a clean environment for each

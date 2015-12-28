@@ -1,4 +1,3 @@
-{-# Language CPP #-}
 -- | Settings are centralized, as much as possible, into this file. This
 -- includes database connection settings, static file locations, etc.
 -- In addition, you can configure a number of different aspects of Yesod
@@ -27,9 +26,8 @@ data AppSettings = AppSettings
     -- ^ Directory from which to serve static files.
     , appDatabaseConf           :: SqliteConf
     -- ^ Configuration settings for accessing the database.
-    , appRoot                   :: Maybe Text
-    -- ^ Base for all generated URLs. If @Nothing@, determined
-    -- from the request headers.
+    , appRoot                   :: Text
+    -- ^ Base for all generated URLs.
     , appHost                   :: HostPreference
     -- ^ Host/interface the server should bind to.
     , appPort                   :: Int
@@ -66,7 +64,7 @@ instance FromJSON AppSettings where
 #endif
         appStaticDir              <- o .: "static-dir"
         appDatabaseConf           <- o .: "database"
-        appRoot                   <- o .:? "approot"
+        appRoot                   <- o .: "approot"
         appHost                   <- fromString <$> o .: "host"
         appPort                   <- o .: "port"
         appIpFromHeader           <- o .: "ip-from-header"
