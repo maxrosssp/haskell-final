@@ -21,7 +21,6 @@ library
                      Settings
                      Settings.StaticFiles
                      Dispatch
-                     Handler.Common
                      Handler.Home
                      Handler.Download
                      Handler.Preview
