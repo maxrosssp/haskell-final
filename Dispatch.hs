@@ -1,3 +1,7 @@
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE QuasiQuotes       #-}
+{-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE ViewPatterns #-}
 
 module Dispatch where

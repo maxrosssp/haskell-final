@@ -1,14 +1,16 @@
+{-# LANGUAGE TemplateHaskell #-}
+
 module Model where
 
-import ClassyPrelude.Yesod
-import Database.Persist.Quasi
-import Database.Persist
-import Database.Persist.TH
-import Database.Persist.Sqlite
+--import ClassyPrelude.Yesod
+--import Database.Persist.Quasi
+--import Database.Persist
+--import Database.Persist.TH
+--import Database.Persist.Sqlite
 
--- You can define all of your database entities in the entities file.
--- You can find more information on persistent and how to declare entities
--- at:
--- http://www.yesodweb.com/book/persistent/
-share [mkPersist sqlSettings, mkMigrate "migrateAll"]
-    $(persistFileWith lowerCaseSettings "config/models")
+---- You can define all of your database entities in the entities file.
+---- You can find more information on persistent and how to declare entities
+---- at:
+---- http://www.yesodweb.com/book/persistent/
+--share [mkPersist sqlSettings, mkMigrate "migrateAll"]
+--    $(persistFileWith lowerCaseSettings "config/models")

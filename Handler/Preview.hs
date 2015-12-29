@@ -1,8 +1,15 @@
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE QuasiQuotes       #-}
+{-# LANGUAGE TemplateHaskell   #-}
+
 module Handler.Preview where
 
 import Import hiding (try)
 import Yesod.Form.Bootstrap3 (BootstrapFormLayout (..), renderBootstrap3,
                               withSmallInput)
+
+import Prelude hiding ((.))
 
 import Control.Exception hiding (Handler)
 import qualified Data.ByteString.Lazy as LB

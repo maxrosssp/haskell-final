@@ -1,3 +1,9 @@
+{-# LANGUAGE MultiParamTypeClasses #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
+{-# LANGUAGE ViewPatterns #-}
+
 module Foundation where
 
 import Import.NoFoundation hiding (ByteString, atomically)
@@ -17,6 +23,8 @@ import Import.NoFoundation hiding (ByteString, atomically)
 ----import Yesod
 --import Yesod.Default.Util
 
+import Prelude hiding ((.))
+
 import Data.IntMap (IntMap)
 import qualified Data.IntMap as IntMap
 import Control.Concurrent.STM
@@ -27,7 +35,7 @@ import qualified Data.Text as Text
 import Text.Hamlet
 import Yesod
 import Yesod.Default.Util
-import ClassyPrelude.Yesod hiding (ByteString, atomically)
+--import ClassyPrelude.Yesod hiding (ByteString, atomically)
 
 -- | The foundation datatype for your application. This can be a good place to
 -- keep settings and values requiring initialization before your application

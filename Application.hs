@@ -1,15 +1,17 @@
 {-# OPTIONS_GHC -fno-warn-orphans #-}
-module Application
-    ( getApplicationDev
-    , appMain
-    , develMain
-    -- * for DevelMain
-    , getApplicationRepl
-    , shutdownApp
-    -- * for GHCI
-    , handler
-    , db
-    ) where
+module Application where
+    
+--module Application
+--    ( getApplicationDev
+--    , appMain
+--    , develMain
+--    -- * for DevelMain
+--    , getApplicationRepl
+--    , shutdownApp
+--    -- * for GHCI
+--    , handler
+--    , db
+--    ) where
 
 import Control.Monad.Logger                 (liftLoc, runLoggingT)
 import Database.Persist.Sqlite              (createSqlitePool, runSqlPool,
@@ -167,7 +169,7 @@ mkYesodDispatch "App" resourcesApp
 ---- Functions for use in development with GHCi
 -----------------------------------------------
 
----- | Run a handler
+-- | Run a handler
 --handler :: Handler a -> IO a
 --handler h = getAppSettings >>= makeFoundation >>= flip unsafeHandler h
 
